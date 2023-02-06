@@ -2,7 +2,9 @@
 
 import {useState} from 'react';
 import AnimalShow from './AnimalShow';
+import searchImages from './api';
 import './App.css';
+import SearchBar from './components/SearchBar';
 
 
 
@@ -24,11 +26,24 @@ function App() {
         return <AnimalShow type={animal} key={index} />
     })
 
+    const handleSubmit = (term) => {
+        console.log("do  a search with ", term);
+        searchImages(term);
+    }
+
     return <div className='app'>
-        <button onClick={handleClick}>Add Animal</button>
-        <div className='animal-list'>
-            {renderedAnimals}
+
+        <div className='animal-app'>
+            <button onClick={handleClick}>Add Animal</button>
+            <div className='animal-list'>
+                {renderedAnimals}
+            </div>
         </div>
+
+        <div>
+            <SearchBar onSubmit = {handleSubmit} />
+        </div>
+        
     </div>;
 }
 
