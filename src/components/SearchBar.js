@@ -16,12 +16,13 @@ function SearchBar({onSubmit}) {
     const handleChange = (event) => {
 
         console.log(event.target.value);
-        setTerm(event.target.value);
+        setTerm(event.target.value.replace(/[a-z]/, ''));
     }
 
     return <div>
         <form onSubmit={handleFormSubmit}>
-            <input onChange={handleChange} />
+            <input value={term} onChange={handleChange} />
+            {term.length < 3 && 'term must be longer'}
         </form>
         
     </div>;
