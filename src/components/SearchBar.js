@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './SearchBar.css';
 
 function SearchBar({onSubmit}) {
     const handleClick=()=>{
@@ -9,20 +10,17 @@ function SearchBar({onSubmit}) {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log("i need to tell the parent about some data");
         onSubmit(term);
     }
 
     const handleChange = (event) => {
-
-        console.log(event.target.value);
-        setTerm(event.target.value.replace(/[a-z]/, ''));
+        setTerm(event.target.value);
     }
 
-    return <div>
+    return <div className="search-bar">
         <form onSubmit={handleFormSubmit}>
+            <label>Enter search term</label>
             <input value={term} onChange={handleChange} />
-            {term.length < 3 && 'term must be longer'}
         </form>
         
     </div>;

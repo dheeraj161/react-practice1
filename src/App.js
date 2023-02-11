@@ -4,7 +4,9 @@ import {useState} from 'react';
 import AnimalShow from './AnimalShow';
 import searchImages from './api';
 import './App.css';
+import ImageList from './components/ImageList';
 import SearchBar from './components/SearchBar';
+
 
 
 
@@ -17,6 +19,7 @@ function getRandomAnimal() {
 function App() {
 
     const [animals, setAnimals] = useState([]);
+    const [images, setImages] = useState([]);
     const handleClick = () => {
 
         setAnimals([...animals, getRandomAnimal()]);
@@ -26,9 +29,10 @@ function App() {
         return <AnimalShow type={animal} key={index} />
     })
 
-    const handleSubmit = (term) => {
+    const handleSubmit = async (term) => {
         console.log("do  a search with ", term);
-        searchImages(term);
+        const result = await searchImages(term);
+        setImages(result);
     }
 
     return <div className='app'>
@@ -42,6 +46,7 @@ function App() {
 
         <div>
             <SearchBar onSubmit = {handleSubmit} />
+            <ImageList images={images} />
         </div>
         
     </div>;

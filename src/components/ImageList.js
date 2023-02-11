@@ -1,6 +1,15 @@
+import ImageShow from "./ImageShow";
 
-function ImageList() {
-    return <div>ImageList</div>;
+import './ImageList.css';
+
+function ImageList({images}) {
+    // return <div>ImageList: {images.length}</div>;
+
+
+    const renderedImages = images.map((image)=> {
+        return <ImageShow key={image.id} image={image} />
+    });
+    return <div className="image-list">{renderedImages}</div>;
 }
 
 export default ImageList;
