@@ -1,7 +1,11 @@
 {
   "name": "animals",
   "version": "0.1.0",
+<<<<<<< HEAD
+  "homepage": "https://dheeraj161.github.io/react-practice1",
+=======
   "homepage": "https://dheeraj161.github.io/react-practice2",
+>>>>>>> f48f758 (package.json updated)
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -15,7 +19,11 @@
   },
   "scripts": {
     "predeploy": "npm run build",
+<<<<<<< HEAD
+    "deploy": "react-practice1 -d build",
+=======
     "deploy": "react-practice2 -d build",
+>>>>>>> f48f758 (package.json updated)
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
